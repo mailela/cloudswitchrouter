@@ -1,0 +1,36 @@
+{
+	"debug": true, //调试模式
+	//服务配置
+	"server": {
+		"headers": {
+			"Server": "Cloud Proxy Server ", //服务器标识
+			"ServerName": "Cloud Switch Router", //服务器名称
+			"Access-Control-Allow-Origin": "*" //允许跨域
+		},
+		"ip": "0.0.0.0",
+		"port": 8092, //服务访问接口
+		"ssl": {
+			"enable": true, //是否启用
+			"ip": "0.0.0.0", //绑定IP
+			"port": 8093, //ssl服务访问接口
+			"key": "./cert/server.key", //密钥key
+			"cert": "./cert/server.pcm" //PEM格式证书
+		},
+		"webroot": "${CUR}/webroot", //Web目录用于资源访问
+		"plug_path": "/plugs/" //插件目录
+	},
+	//负载均衡代理配置
+	"proxy": {
+		"enable":true, //是否启用 启用可钓鱼台服务器负载
+		"servers": [
+			{
+				"server": "http://127.0.0.1:8082", //服务器1
+				"level": "1" //权重优先级别
+			},
+			{
+				"server": "http://127.0.0.1:8082", //服务器2
+				"level": "1"
+			}
+		]
+	}
+}
