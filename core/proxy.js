@@ -13,7 +13,6 @@ proxy.on("proxyReq", () => {
 })
 
 function nginx(request, response, server) {
-   
     try{
         console.log(request.url,server)
     }catch(e){

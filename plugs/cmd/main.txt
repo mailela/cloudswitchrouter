@@ -5,7 +5,6 @@ var log = require('log4node')
 var fs = require('fs')
 var path = require("path");
 var msg = require(path.join(global.CWD,"core/message.js"));
-// œµÕ≥≈‰÷√
 const config = {
 }
 var response, request;
